@@ -1,4 +1,8 @@
 node {
+     stage('Initialize') {
+        def dockerHome = tool 'myDocker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
+    }
     stage('Clone') {
         git branch: 'main', url: 'https://github.com/wildnano/jenkins.git'
     }
